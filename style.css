@@ -1,0 +1,144 @@
+:root{
+    --primary-background:#f1f1f1;
+    --primary-font:#000000;
+    --primary-btn-color:#A7C6ED;
+    --delete-dark-mode:#FF4C4C;
+    --primary-font:"inter", sans-serif;
+
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background-color: var(--primary-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    font-family: var(--primary-font);
+    color: var(--primary-font);
+
+
+}
+
+h1{
+   font-size: 1.6rem;
+}
+
+
+.nav{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ffffff52;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border-bottom: 1px solid #ffff;
+    box-shadow: 0px 7px 5px #ffffffbe;
+    align-items: end;
+
+}
+
+.nav ul{
+    list-style: none;
+    
+}
+
+ul img{
+    width: 20px;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: auto;
+}
+
+
+
+.card{
+    height: 40dvh;
+    width: 15%;
+    border: 1px solid #ffffff;
+    border-radius: 15px;
+
+    background-image: url("./images/focus/focus_img_bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 310px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card-header{
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 10px 18px;
+    align-content: baseline;
+    
+
+}
+
+.card-header h2{
+    font-size: 1rem;
+    font-weight: 800;
+    
+
+}
+
+.card-header img{
+    height: 30px;
+    color: var(--primary-btn-color);
+
+
+}
+
+.card-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+   
+
+    
+    
+}
+
+.goal-input{
+    margin-top:auto ;
+    display: flex;
+    
+
+}
+.goal-input input{
+    border: 1px solid #ebe8e8;
+    border-radius:3px;
+    padding: 3px 0;
+    
+}
+
+
+.goal-input input:focus{
+    border: 1px solid #ffff;
+}
+
+.goal-input button{
+    font-size: .55em;
+    font-weight: 1000;
+    padding:0px  10px;
+    border-radius: 4px;
+    margin-left: -30px;
+    background-color: var(--primary-btn-color);
+}
