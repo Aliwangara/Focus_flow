@@ -23,46 +23,137 @@
             </ul>
         </div>
 
-        <div class="">
+        <div class="body-container">
 
 
-
-        </div>
-
-        <div class="card-container">
-
-            <div class="card">
-                <div class="card-header">
-                    <h2>Daily Focus Goal</h2>
-                    <img src="images/focus/focus.png" alt="">
-                </div>
-
-                <div>
+            <!-- Start of card -->
 
 
+                <div class="card-container">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Daily Focus Goal</h2>
+                            <img src="images/focus/focus.png" alt="">
+                        </div>
 
 
-                </div>
+                        <div class="card-content">
+                            <p id="goal-content"></p>
 
-                <div class="card-content">
-                    <p></p>
+                            <div class="goal-input">
+                                <input type="text" id="input-el" placeholder="Set a Goal">
+                                <button id="goal-btn">Set Goal</button>
 
-                    <div class="goal-input">
-                        <input type="text" id="input-el">
-                        <button>Set Goal</button>
+                            </div>
+                            
+                        </div>
+
+
 
                     </div>
-                    
-                    
+
+
+
+<!-- Start of Second Card -->
+                    <div class="card"  style="background-image: none;">
+                        <div class="card-header">
+                            <h2>Pomodoro Timer</h2>
+                            <p style="background-color: #A7C6ED; font-family:inherit ; font-size: .8rem; font-weight: bold; padding: 5px 8px; border-radius: 15px;">Work</p>
+                        </div>
+
+
+                        <div class="card-content">
+                            <p></p>
+
+                            <div class="second-goal-input">
+                                <button class="start-btn"><i class="fa-solid fa-play" style="margin-right: 5px; "></i>Start</button>
+                                <button class="reset-btn"><i class="fa-solid fa-rotate-right" style="margin-right: 5px;"></i>Reset</button>
+
+                            </div>
+                        </div>
+                            
+                    </div>
+
+<!-- End of second card-->
+
+                    <div class="card" style="background-image: none;" id="quote-main">
+                        
+
+
+                        <div class="card-content" id="quote-text">
+
+
+                            <p></p>
+
+                         
+                        </div>
+
+
                     
 
+
+
+                        
+                            
+                        
+
+
+
+                    </div>
+
+
+
                 </div>
+
+            <!-- End of Card -->
+
+
+            <!-- START OF TODO LIST -->
+
+            <div class="todo-container">
+
+                <h2>MY To-Do List</h2>
+
+                <p>Manage Your daily tasks and stay organized</p>
+
+                <div class="todo-input">
+
+                    <input type="text" placeholder="Add a new task"  id="todo-el">
+                    <button>Add Task</button>
+
+
+                </div>
+
+                
+
+                <div class="todo-items">
+
+                    <p>Complete UI blueprint</p>
+
+                </div>
+
+
             </div>
 
 
 
+            <!-- END OF TODO LIST -->
+
+
+
+
+
+
+
         </div>
 
+
+
+
+        </div>
+
+        
 
     </div>
 
@@ -70,5 +161,6 @@
 
 
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/2256adb598.js" crossorigin="anonymous"></script>
 </body>
 </html>

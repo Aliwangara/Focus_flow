@@ -1,6 +1,6 @@
 :root{
-    --primary-background:#f1f1f1;
-    --primary-font:#000000;
+    --primary-background:#ffffff;
+    --primary-font-color:#000000;
     --primary-btn-color:#A7C6ED;
     --delete-dark-mode:#FF4C4C;
     --primary-font:"inter", sans-serif;
@@ -26,6 +26,9 @@ body{
 
 
 }
+p{
+    font-family: inherit;
+}
 
 h1{
    font-size: 1.6rem;
@@ -37,10 +40,10 @@ h1{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #ffffff52;
+    background-color: #fcfcfcee;
     padding: 8px 10px;
-    border-radius: 10px;
-    border-bottom: 1px solid #ffff;
+    /* border-radius: 8px; */
+    border-bottom: 1px solid #e6e3e3;
     box-shadow: 0px 7px 5px #ffffffbe;
     align-items: end;
 
@@ -57,8 +60,7 @@ ul img{
 
 .card-container{
     display: flex;
-    justify-content: center;
-    padding: 20px;
+    justify-content: space-between;
     margin: auto;
 }
 
@@ -66,18 +68,19 @@ ul img{
 
 .card{
     height: 40dvh;
-    width: 15%;
-    border: 1px solid #ffffff;
+    width:25%;
+    border: 1px solid #d4d3d3;
     border-radius: 15px;
 
-    background-image: url("./images/focus/focus_img_bg.png");
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url("./images/focus/focus_img_bg.png");background-position: center;background-repeat: no-repeat;
     background-size: cover;
     height: 310px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    
+    
 }
 
 
@@ -121,11 +124,13 @@ ul img{
     display: flex;
     
 
+    
+
 }
 .goal-input input{
     border: 1px solid #ebe8e8;
     border-radius:3px;
-    padding: 3px 0;
+    padding: 5px 5px;
     
 }
 
@@ -135,10 +140,124 @@ ul img{
 }
 
 .goal-input button{
-    font-size: .55em;
-    font-weight: 1000;
+    font-size: .8em;
+    font-weight: 600;
+    color: #1066cf;
     padding:0px  10px;
     border-radius: 4px;
-    margin-left: -30px;
+    margin-left: -50px;
     background-color: var(--primary-btn-color);
 }
+
+.second-goal-input{
+    margin-top: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.start-btn{
+    padding: .5rem 2rem;
+    background-color: var(--primary-btn-color);
+    border-radius: 5px;
+    color: #0a4fa3;
+    font-weight: 200;
+}
+
+.reset-btn{
+    font-size: .4rem;
+    font: inherit;
+    font-weight:400 ;
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    background-color: inherit;
+    padding: .5rem 1rem;
+    
+    
+    
+}
+
+
+
+.body-container{
+
+    width: 100%;
+    max-width: 1700px;
+   padding: 1rem 12rem;
+   
+
+}
+
+.todo-container{
+    margin-top: 50px;
+    border: 1px solid #eeeeee;
+    padding: 20px;
+    overflow: auto;
+    width: 80%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+
+}
+
+.todo-container h2{
+    font-size: 2rem;
+
+
+}
+
+.todo-container p{
+    color: #808080;
+    font-size: .9rem;
+    padding: 5px;
+
+}
+
+.todo-input{
+    display: flex;
+    padding: .5rem;
+    gap:10px;
+}
+
+.todo-input input{
+    padding: 8px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    color: gray;
+    border: 1px solid #ccc;
+    font-size: .8rem;
+    font-weight: 500;
+    font-style: italic;
+    border-radius: 5px;
+}
+.todo-input button{
+    font-size: .8rem;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    margin-left: 5px;
+    border-radius: 5px;
+    color: #000;
+    padding: 8px 16px;
+    background: #ffffff;
+    white-space: nowrap;
+}
+
+.todo-items p::before{
+    content: '';
+    display: inline-block;
+    border-radius: 2px;
+    margin-right: 4px;
+    height: 7px;
+    width: 7px;
+    padding: 2px;
+    border: 2px solid #b6b6b6;
+}
+
+.todo-items p{
+    color: #575656;
+    font-style:inherit;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+
+
