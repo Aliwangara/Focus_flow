@@ -27,9 +27,7 @@ body{
 
 }
 
-.background-mode{
-    background-color: #000000;
-}
+
 
 p{
     font-family: inherit;
@@ -65,8 +63,10 @@ ul img{
 
 .card-container{
     display: flex;
-    justify-content: space-between;
-    margin: auto;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1700px;
+    
 }
 
 
@@ -122,6 +122,16 @@ ul img{
 
     
     
+}
+
+.goal-list{
+    color: #444444;
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-style: italic;
+
+
+
 }
 
 .goal-input{
@@ -197,8 +207,8 @@ ul img{
     border: 1px solid #eeeeee;
     padding: 20px;
     overflow: auto;
-    width: 80%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 1700px;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;

@@ -1,15 +1,29 @@
 
+// Goal Card variables
 
 const goalContent = document.getElementById('goal-content');
 const goalEl = document.getElementById('input-el');
 const goalBtn = document.getElementById('goal-btn')
 
-const backgroundImage = ['url(images/quotecard.jpg")']
+let goals =JSON.parse(localStorage.getItem("goals"))|| [];
+
+if(!Array.isArray(goals)){
+    goals = []
+}
+
+goalDisplay()
+
+console.log("goals  :", goals)
+
+// End of goal card variables
+
+// Quote Card Variables
+
+const backgroundImage = ['url("images/quotecard.jpg")']
 
 const quote = [`Be who you are and say what you feel,
      because those who mind don't matter, 
      and those who matter don't mind.`]
-
 
 const author = ["Bernard M. Baruch"]
 
@@ -17,11 +31,13 @@ const quoteMain = document.querySelector('#quote-main')
 
 const quoteText= document.querySelector('#quote-text')
 
+// End of quote card variables
 
-const goals =JSON.parse(localStorage.getItem("goals"))|| [];
 
 
-const body = document.getElementById('body')
+
+
+
 
 
 
@@ -86,12 +102,35 @@ function quoteContent(){
 
 // Focus card function
 
+function goalDisplay(){
+
+    goalContent.innerHTML = ``
+
+    
+
+    goals.forEach(goal => {
+        const li = document.createElement('li');
+        li.className = "goal-list"
+
+        li.textContent = goal
+        goalContent.appendChild(li)
+        
+        
+    });
+    
+
+}
+
+
+
 goalBtn.addEventListener('click', function(){
 
    goals.push(goalEl.value)
 
+   goalDisplay()
 
-    goalContent.textContent += goalEl.value + '\n';
+   
+
 
     localStorage.setItem("goals",  JSON.stringify(goals))
 
@@ -100,23 +139,16 @@ goalBtn.addEventListener('click', function(){
     goalEl.value = '';
 
     
-
-    
-
-
 })
 
-backgroundMode.addEventListener('click', backgroundModeToggle);
-
-function backgroundModeToggle(){
-
-    const background = Element.classList.toggle(".background-mode")
-    
 
 
 
 
-}
+
+
+
+
 
 
 
