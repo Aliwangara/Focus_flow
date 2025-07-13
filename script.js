@@ -1,5 +1,5 @@
 
-let goals = [];
+
 const goalContent = document.getElementById('goal-content');
 const goalEl = document.getElementById('input-el');
 const goalBtn = document.getElementById('goal-btn')
@@ -16,6 +16,15 @@ const author = ["Bernard M. Baruch"]
 const quoteMain = document.querySelector('#quote-main')
 
 const quoteText= document.querySelector('#quote-text')
+
+
+const goals =JSON.parse(localStorage.getItem("goals"))|| [];
+
+
+const body = document.getElementById('body')
+
+
+
 
 
 function quoteCard(){
@@ -79,18 +88,35 @@ function quoteContent(){
 
 goalBtn.addEventListener('click', function(){
 
-    goals.push(goalEl.value)
+   goals.push(goalEl.value)
 
-    goalContent.textContent += goalEl.value
+
+    goalContent.textContent += goalEl.value + '\n';
+
+    localStorage.setItem("goals",  JSON.stringify(goals))
+
+    
 
     goalEl.value = '';
+
+    
 
     
 
 
 })
 
+backgroundMode.addEventListener('click', backgroundModeToggle);
 
+function backgroundModeToggle(){
+
+    const background = Element.classList.toggle(".background-mode")
+    
+
+
+
+
+}
 
 
 

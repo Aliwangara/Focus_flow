@@ -26,6 +26,11 @@ body{
 
 
 }
+
+.background-mode{
+    background-color: #000000;
+}
+
 p{
     font-family: inherit;
 }
