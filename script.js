@@ -16,6 +16,22 @@ goalDisplay()
 console.log("goals  :", goals)
 
 // End of goal card variables
+// start of stopwatch
+
+const startBtn = document.getElementById('start-clock');
+const stopBtn = document.getElementById('stop-clock');
+const resetBtn = document.getElementById('reset-clock');
+const display = document.getElementById('display')
+
+let seconds = 0;
+let minutes = 0;
+let hours = 0 ;
+let timer;
+let isRunning = false
+
+
+
+// End of stop watch
 
 // Quote Card Variables
 
@@ -35,70 +51,6 @@ const quoteText= document.querySelector('#quote-text')
 
 
 
-
-
-
-
-
-
-
-
-function quoteCard(){
-
-quoteBackground()
-quoteContent()
-
-
-
-
-}
-
-quoteCard()
-
-
-
-function quoteBackground(){
-
-        quoteMain.style.backgroundImage = backgroundImage[0]
-
-
-}
-
-quoteBackground()
-
-
-// quoteContent.addEventListener('DOMContentLoaded', displayquote)
-
-// function displayquote(){
-//     const p = document.createElement('p');
-//     const author = document.createElement('h4')
-
-//     p.innerHTML = ` "${quote} /n ${author}" ` 
-
-//     quoteCard.appendChild(p,author)
-
-
-
-// }
-
-function quoteContent(){
-    let p = '';
-
-     p = `
-
-        <div style="padding:20px;">
-        <p style='margin:10px; font:inherit; font-style:italic;'>
-        "${quote}</p> \n <h4 style='font:inherit; font-style:italic;'>
-        -${author}"</h4>
-        
-        </div>
-        `
-        
-        
-
-        quoteText.innerHTML += p
-
-}
 
 // Focus card function
 
@@ -140,6 +92,116 @@ goalBtn.addEventListener('click', function(){
 
     
 })
+
+
+// Start of Stop Watch
+
+function updateTime(){
+    seconds++;
+
+    if(seconds === 60){
+        seconds = 0;
+        minutes++;
+    }
+
+    if(minutes === 60){
+        minutes = 0;
+        hours++
+
+    }
+
+    const sec = seconds < 10 ? '0' + seconds : seconds
+    const min = minutes < 10 ? '0' + minutes : minutes
+    const hrs = hours < 10 ? '0' + hours : hours
+
+    display.textContent = `${hrs} : ${min} : ${sec}`
+
+    
+
+
+}
+
+startBtn.addEventListener('click', ()=>{
+
+    if(!isRunning){
+        timer = setInterval(updateTime, 1000)
+        isRunning = true
+    }
+
+
+})
+
+stopBtn.addEventListener('click', ()=>{
+
+        clearInterval(timer)
+        isRunning = false
+
+
+})
+
+resetBtn.addEventListener('click', ()=>{
+
+    clearInterval(timer);
+    isRunning = false;
+    hours =0;
+    minutes = 0;
+    seconds = 0; 
+    display.textContent = `00 : 00 : 00`;
+
+
+})
+
+
+
+
+
+//  start of quote card
+function quoteCard(){
+
+quoteBackground()
+quoteContent()
+
+
+
+
+}
+
+quoteCard()
+
+
+
+function quoteBackground(){
+
+        quoteMain.style.backgroundImage = backgroundImage[0]
+
+
+}
+
+quoteBackground()
+
+
+
+
+function quoteContent(){
+    let p = '';
+
+     p = `
+
+        <div style="padding:20px;">
+        <p style='margin:10px; font:inherit; font-style:italic;'>
+        "${quote}</p> \n <h4 style='font:inherit; font-style:italic;'>
+        -${author}"</h4>
+        
+        </div>
+        `
+        
+        
+
+        quoteText.innerHTML += p
+
+}
+
+
 
 
 

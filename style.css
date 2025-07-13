@@ -168,14 +168,34 @@ ul img{
     margin-top: auto;
     display: flex;
     justify-content: space-evenly;
+    
 }
 
+.p-time{
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+}
+
+
 .start-btn{
-    padding: .5rem 2rem;
+    padding: .5rem 1rem;
     background-color: var(--primary-btn-color);
     border-radius: 5px;
     color: #0a4fa3;
     font-weight: 200;
+}
+
+.stop-btn{
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    padding: .6rem .3rem;
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+
 }
 
 .reset-btn{
@@ -185,11 +205,12 @@ ul img{
     border: 1px solid #e4e4e4;
     border-radius: 5px;
     background-color: inherit;
-    padding: .5rem 1rem;
+    padding: .5rem .3rem;
     
     
     
 }
+
 
 
 
