@@ -16,7 +16,8 @@ goalDisplay()
 console.log("goals  :", goals)
 
 // End of goal card variables
-// start of stopwatch
+
+// start of stopwatch variables
 
 const startBtn = document.getElementById('start-clock');
 const stopBtn = document.getElementById('stop-clock');
@@ -63,7 +64,7 @@ function goalDisplay(){
     goals.forEach(goal => {
         const li = document.createElement('li');
         li.className = "goal-list"
-
+        li.contentEditable = true
         li.textContent = goal
         goalContent.appendChild(li)
         
