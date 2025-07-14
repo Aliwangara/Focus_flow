@@ -61,6 +61,10 @@ ul img{
     width: 20px;
 }
 
+li{
+    list-style: none;
+}
+
 .card-container{
     display: flex;
     justify-content: space-around;
@@ -278,7 +282,7 @@ ul img{
     white-space: nowrap;
 }
 
-.todo-items p::before{
+.todo-items li::before{
     content: '';
     display: inline-block;
     border-radius: 2px;
@@ -289,10 +293,25 @@ ul img{
     border: 2px solid #b6b6b6;
 }
 
-.todo-items p{
+.todo-items li{
     color: #575656;
     font-style:inherit;
     border-bottom: 1px solid #e4e4e4;
+    padding: 13px;
+}
+
+.todo-items li.done{
+    text-decoration: line-through;
+    
+}
+
+.todo-items li.done::before{
+    content: '✔';
+    color: #ffffff;
+    font-size: 14px;
+    background-color: var(--primary-btn-color);
+    border: none;
+    
 }
 
 

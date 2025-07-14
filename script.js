@@ -13,6 +13,7 @@ if(!Array.isArray(goals)){
 
 goalDisplay()
 
+
 console.log("goals  :", goals)
 
 // End of goal card variables
@@ -33,6 +34,24 @@ let isRunning = false
 
 
 // End of stop watch
+
+// todo list variables
+
+const todoEl = document.getElementById('todo-el')
+const addtaskBtn = document.getElementById('add-task');
+const todoContent =document.getElementById('todo-content');
+
+const task =JSON.parse(localStorage.getItem('task')) || [];
+
+taskDisplay()
+
+
+
+// end of todo list
+
+
+
+
 
 // Quote Card Variables
 
@@ -201,6 +220,61 @@ function quoteContent(){
         quoteText.innerHTML += p
 
 }
+
+
+// todo list
+
+addtaskBtn.addEventListener('click', addTask);
+
+function addTask(){
+
+    task.push(todoEl.value.trim())
+    taskDisplay()
+
+    localStorage.setItem('task', JSON.stringify(task))
+
+
+
+
+}
+
+   
+
+function taskDisplay(){
+    todoContent.innerHTML = ``;
+
+     task.forEach(tasks => {
+        const li = document.createElement('li')
+        li.textContent = tasks
+        todoEl.value = '';
+
+
+        todoContent.appendChild(li)
+
+        li.addEventListener('click', ()=>{
+            li.classList.toggle('done')
+        })
+
+        
+    });
+
+
+
+
+}
+
+
+    
+
+    
+
+    
+
+
+
+
+
+
 
 
 
