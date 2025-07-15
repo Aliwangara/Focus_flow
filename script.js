@@ -43,6 +43,8 @@ const todoContent =document.getElementById('todo-content');
 
 const task =JSON.parse(localStorage.getItem('task')) || [];
 
+console.log("task :", task)
+
 taskDisplay()
 
 
@@ -78,19 +80,59 @@ function goalDisplay(){
 
     goalContent.innerHTML = ``
 
-    
 
-    goals.forEach(goal => {
+    goals.forEach((goal,index) => {
         const li = document.createElement('li');
+        
         li.className = "goal-list"
         li.contentEditable = true
         li.textContent = goal
+
+
+       li.addEventListener('blur', ()=> {
+        const newGoal = li.textContent.trim();
+
+        if(newGoal !== ''){
+        goals[index] = newGoal;
+            localStorage.setItem("goals", JSON.stringify(goals))
+        }
+        
+        })
+
+        li.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            li.blur(); // Remove focus to trigger the blur event
+        }
+    })
+
+    const deleteBtn = document.createElement('button');
+        deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        deleteBtn.id = 'goal-delete-btn';
+
+        deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            goals.splice(index, 1);
+            localStorage.setItem("goals", JSON.stringify(goals));
+            goalDisplay();
+        })
+
+        li.appendChild(deleteBtn)
         goalContent.appendChild(li)
+       
         
         
     });
     
+    
 
+}
+
+function saveGoalEdit(index, newGoal){
+    if(newGoal.trim() === ''){
+        goals[index]= newGoal;
+        localStorage.setItem("goals", JSON.stringify(goals));
+    }
 }
 
 
@@ -228,11 +270,25 @@ addtaskBtn.addEventListener('click', addTask);
 
 function addTask(){
 
-    task.push(todoEl.value.trim())
-    taskDisplay()
+            const taskText = todoEl.value.trim()
 
-    localStorage.setItem('task', JSON.stringify(task))
+            if(taskText !== ''){
 
+                task.push(
+                {
+                    text:taskText, 
+                    done:false
+
+                })
+                localStorage.setItem('task', JSON.stringify(task))
+                taskDisplay()
+
+                
+
+
+             }
+
+   
 
 
 
@@ -242,21 +298,59 @@ function addTask(){
 
 function taskDisplay(){
     todoContent.innerHTML = ``;
+   
 
-     task.forEach(tasks => {
+     task.forEach((tasks,index) => {
         const li = document.createElement('li')
-        li.textContent = tasks
-        todoEl.value = '';
+        li.textContent = tasks.text
+        li.className = 'todo-list'
 
+        const deleteBtn = document.createElement('button');
 
+        deleteBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+        deleteBtn.id = 'delete-btn';
+
+        li.appendChild(deleteBtn)
         todoContent.appendChild(li)
 
+       
+
+
+
+        
+
+        
+
+
+
+        
+        if(tasks.done){
+                li.classList.toggle('done')
+
+            }
+
         li.addEventListener('click', ()=>{
-            li.classList.toggle('done')
+
+                task[index].done = !task[index].done;
+                li.classList.toggle('done')
+                localStorage.setItem('task', JSON.stringify(task))
+
+        });
+
+
+        deleteBtn.addEventListener('click', (e)=>{
+            e.stopPropagation();
+            task.splice(index, 1);
+            localStorage.setItem('task', JSON.stringify(task));
+            taskDisplay();
         })
 
         
+        
+
     });
+
+    todoEl.value = '';
 
 
 

@@ -133,8 +133,16 @@ li{
     font-size: 1.3rem;
     font-weight: 500;
     font-style: italic;
+    
 
 
+}
+
+#goal-delete-btn{
+    color: var(--delete-dark-mode);
+    background-color: inherit;
+    font-weight: 100;
+    
 
 }
 
@@ -312,6 +320,14 @@ li{
     background-color: var(--primary-btn-color);
     border: none;
     
+}
+
+#delete-btn{
+    color: var(--delete-dark-mode);
+    background-color: inherit;
+    font-weight: 100;
+    position: absolute;
+    right: 220px;
 }
 
 
